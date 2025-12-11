@@ -1,0 +1,84 @@
+.container {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #fff;
+  background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHVhOXd3N3RyMWJ4NTd3ajRxcWkyc2NqdTMzeDBmbndxcjlrbjcwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26BRM88RLMycDlbW0/200.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* Featured Boats */
+.featured {
+  padding: 2rem;
+  width: 100%;
+}
+
+.boatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.boatCard {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.boatCard img {
+  width: 100%;
+  height: auto;
+}
+
+/* Sections */
+.section,
+.lightSection,
+.greySection,
+.centerSection {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.lightSection {
+  background: #f8f9fa;
+}
+
+.greySection {
+  background: #f1f1f1;
+}
+
+.centerSection {
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: blue;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
