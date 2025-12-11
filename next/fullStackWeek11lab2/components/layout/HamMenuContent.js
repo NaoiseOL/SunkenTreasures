@@ -6,35 +6,45 @@ import GlobalContext from "../../pages/store/globalContext"
 export default function HamMenuContent(props) {
     const globalCtx = useContext(GlobalContext)
     const router = useRouter()
-    let [popupToggle, setPopupToggle] = useState(false)
+    const [popupToggle, setPopupToggle] = useState(false)
 
     if (globalCtx.theGlobalObject.hideHamMenu) {
         return null
     }
 
-    function clicked(webAddress) {
+    // Map display titles to actual folder names
+    const routeMap = {
+        'Boats': 'Boats',             // matches pages/Boats/index.js
+        'New Meetup': 'new-meetup' // matches pages/new-meetup/index.js
+        // add more mappings if needed
+    }
+
+    function clicked(itemName) {
         globalCtx.updateGlobals({ cmd: 'hideHamMenu', newVal: true })
-        router.push(webAddress)
+        const route = routeMap[itemName] || itemName
+        router.push(`/${route}`) 
     }
 
     function closeMe() {
         globalCtx.updateGlobals({ cmd: 'hideHamMenu', newVal: true })
-        if (popupToggle == true) {
-            setPopupToggle(false)
-        } else {
-            setPopupToggle(true)
-        }
+        setPopupToggle(!popupToggle)
     }
 
-    let contentJsx = props.contents.map((item, index) => (  //  [{title: 'Meeting 1', webAddress: '/meet1'}, {title: 'Meeting 2', webAddress: '/meet2'}]
-        <div className={classes.menuItem} key={index} onClick={() => clicked(item.webAddress)} >{item.title} </div>
+    const contentJsx = props.contents.map((item, index) => (
+        <div 
+            className={classes.menuItem} 
+            key={index} 
+            onClick={() => clicked(item.title)}
+        >
+            {item.title}
+        </div>
     ))
 
     return (
-        <div className={classes.background} onClick={() => closeMe()} >
-            <div className={classes.mainContent} >
+        <div className={classes.background} onClick={closeMe}>
+            <div className={classes.mainContent}>
                 {contentJsx}
             </div>
         </div>
-    );
+    )
 }
