@@ -1,43 +1,55 @@
 .mainDiv {
-  padding: 25px 5px;
+  padding: 12px 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 46px;
-  background-color: transparent;
+  justify-content: center;
+  height: auto;
+  background-color: #1a2920; /* solid background for clarity */
   border: 2px solid #444d44;
-  border-radius: 10px;
+  border-radius: 8px;
   margin: 5px;
-  transition: background-color 0.4s;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.mainDiv:hover {
+  background-color: #2e3d34;
+  border-color: #00b894; /* accent highlight */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.mainDiv:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .textDiv {
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: center;
 }
 
 .iconDiv {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  color: white;
-  font-size: 25px;
-}
-
-.mainDiv:hover {
-  background-color: #444d44;
-  border: 2px solid #777777;
+  color: #ffffff;
+  font-size: 22px;
+  margin-right: 8px;
 }
 
 .mainText {
-  color: white;
+  color: #ffffff;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  margin: 0px;
-  pointer-events: none;
+  font-family: 'Arial', Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 @media screen and (max-width: 768px) {

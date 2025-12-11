@@ -22,18 +22,18 @@ export default function ShopDropdown() {
         <IoIosMenu />
       </span>
 
-      {/* Pop‑out list */}
+      {/* Pop‑out list with surround */}
       {open && (
-        <ul className={classes.dropdownList}>
-          <li onClick={() => handleSelect('Boats')}>Boats</li>
-          <li onClick={() => handleSelect('Parts')}>Parts</li>
-          <li onClick={() => handleSelect('Engines')}>Engines</li>
-           <li onClick={() => handleSelect('Paint')}>Paint</li>
-          <li onClick={() => handleSelect('Second-Hand')}>Second-Hand</li>
-        </ul>
+        <div className={classes.dropdownContainer}>
+          <ul className={classes.dropdownList}>
+            <li onClick={() => handleSelect('Boats')}>Boats</li>
+            <li onClick={() => handleSelect('Parts')}>Parts</li>
+            <li onClick={() => handleSelect('Engines')}>Engines</li>
+            <li onClick={() => handleSelect('Paint')}>Paint</li>
+            <li onClick={() => handleSelect('Second-Hand')}>Second-Hand</li>
+          </ul>
+        </div>
       )}
     </div>
   );
 }
-
-
