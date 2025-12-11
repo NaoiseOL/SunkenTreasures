@@ -88,7 +88,7 @@ const HomePage = () => {
         <h2>Contact Us</h2>
         <p>Location: Silicon Dock, Galway</p>
         <p>Phone: 085 253 3038</p>
-        <p>Email: CustomerService@anchormanagement.com</p>
+        <p>Email: CustomerService@sunkentreasures.com</p>
         <div>
           <button className={classes.heroButton}>Schedule a Visit</button>
           <button className={classes.heroButton}>Request a Quote</button>
@@ -98,7 +98,7 @@ const HomePage = () => {
       {/* Footer */}
       <footer className={classes.footer}>
         <p>Quick Links: Inventory | Financing | Services | Contact</p>
-        <p>© {new Date().getFullYear()} AnchorManagement</p>
+        <p>© {new Date().getFullYear()} SunkenTreasures</p>
       </footer>
     </div>
   );
