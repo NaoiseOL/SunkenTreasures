@@ -1,19 +1,20 @@
-// our-dimain.com/new-meetup
-import NewMeetupForm from '../../components/meetups/NewMeetupForm'
+// our-domain.com/new-boat
+import NewBoatForm from '../../components/meetups/NewMeetupForm'; // updated import
 import { useRouter } from 'next/router';
-import GlobalContext from "../../pages/store/globalContext"
-import { useContext } from 'react'
+import GlobalContext from "../../pages/store/globalContext";
+import { useContext } from 'react';
 
-function NewMeetupPage() {
-    const router = useRouter()
-    const globalCtx = useContext(GlobalContext)
+function NewBoatPage() {
+  const router = useRouter();
+  const globalCtx = useContext(GlobalContext);
 
-    async function addMeetupHandler(enteredMeetupData)  {
-        await globalCtx.updateGlobals({cmd: 'addMeeting', newVal: enteredMeetupData})
-        router.push('/');
-    }
+  async function addBoatHandler(enteredBoatData) {
+    // still uses the same global update command, but with boat data
+    await globalCtx.updateGlobals({ cmd: 'addMeeting', newVal: enteredBoatData });
+    router.push('/'); // redirect back to homepage
+  }
 
-    return <NewMeetupForm onAddMeetup={addMeetupHandler} />
+  return <NewBoatForm onAddBoat={addBoatHandler} />;
 }
 
-export default NewMeetupPage
+export default NewBoatPage;
