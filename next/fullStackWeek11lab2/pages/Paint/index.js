@@ -1,165 +1,158 @@
 import React from "react";
 
+const cardStyle = {
+  background: "rgba(255,255,255,0.75)",
+  backdropFilter: "blur(6px)",
+  borderRadius: "15px",
+  padding: "1rem",
+  width: "300px",
+  boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
+  transition: "transform 0.25s ease, box-shadow 0.25s ease",
+};
+
 const BoatSalesPage = () => {
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", lineHeight: "1.6" }}>
-
-      {/* ALL PAINT & VARNISH PRODUCTS COMBINED INTO ONE SECTION */}
-      <section style={{ padding: "2rem" }}>
-        <h2>Paints, Repair Kits & Varnish</h2>
+    <div
+      style={{
+        fontFamily: "Arial, sans-serif",
+        lineHeight: "1.6",
+        background: "linear-gradient(135deg, #e0f7ff, #c3e0ff)",
+        minHeight: "100vh",
+        padding: "2rem",
+      }}
+    >
+      {/* All Paints */}
+      <section style={{ maxWidth: "1300px", margin: "auto" }}>
+        <h2 style={{ fontSize: "2.2rem", marginBottom: "1.5rem", color: "#004f7c" }}>
+          Paints, Repair Kits & Varnish
+        </h2>
 
         <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
 
-          {/* Epoxy Kit */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/88/65.520.10_New2019.jpg?t=1734405406"
-              style={{ width: "100%" }}
-            />
-            <h3>Epoxy Resin Fiberglass Repair Kit</h3>
-            <p>Brand: OSCULATI</p>
-            <p>Price: $61.38</p>
-            <button onClick={() => window.location.href="/Paint/epoxy-repair-kit"}>
-              View Details
-            </button>
-          </div>
+          {/* Card Component Template */}
+          {[
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/88/65.520.10_New2019.jpg?t=1734405406",
+              title: "Epoxy Resin Fiberglass Repair Kit",
+              brand: "OSCULATI",
+              price: "$61.38",
+              rating: 5,
+              link: "/Paint/epoxy-repair-kit",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/200/apikmfoqn__52294.jpg?t=1738896081",
+              title: "Six10 Thickened Epoxy Adhesive",
+              brand: "Six10",
+              price: "$49.30",
+              rating: 4,
+              link: "/Paint/six10-epoxy",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/155/LNKZ8822.jpg?t=1734404724",
+              title: "Glass Fibre Sheet",
+              brand: "Talamex",
+              price: "$12.40",
+              rating: 4,
+              link: "/Paint/glass-fibre",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/120/GS90004.jpg?t=1735008971",
+              title: "Engine Spray Paints",
+              brand: "Talamex",
+              price: "$16.59",
+              rating: 5,
+              link: "/Paint/engine-spray-paint",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/162/51f7jY2pbDL._AC_SL1000_.jpg?t=1734404935",
+              title: "Brilliant Gloss Top Coat",
+              brand: "Hempel",
+              price: "$20.05",
+              rating: 5,
+              link: "/Paint/brilliant-gloss-topcoat",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/195/topcoat-plus-rescue-orange-ylk265.jpg?t=1734405176",
+              title: "International Toplac Plus",
+              brand: "International",
+              price: "$41.11",
+              rating: 4,
+              link: "/Paint/toplac-plus",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/220/240/detailed/59/duraSatin.jpg?t=1732329137",
+              title: "Hempel Classic Varnish",
+              brand: "Hempel",
+              price: "$27.59",
+              rating: 5,
+              link: "/Paint/hempel-varnish",
+            },
+            {
+              img: "https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/151/63.0365_w550_h550.jpg?t=1734576756",
+              title: "Owartal Glazing Finish",
+              brand: "Owartal",
+              price: "$19.50",
+              rating: 4,
+              link: "/Paint/owartal-glazing",
+            },
+          ].map((p, index) => (
+            <div
+              key={index}
+              style={cardStyle}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              <img src={p.img} style={{ width: "100%", borderRadius: "10px" }} />
+              <h3>{p.title}</h3>
 
-          {/* Six10 Adhesive */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/200/apikmfoqn__52294.jpg?t=1738896081"
-              style={{ width: "100%" }}
-            />
-            <h3>West System Six10 Thickened Epoxy Adhesive</h3>
-            <p>Brand: Six10</p>
-            <p>Price: $49.30</p>
-            <button onClick={() => window.location.href="/Paint/six10-epoxy"}>
-              View Details
-            </button>
-          </div>
+              {/* ⭐ Rating */}
+              <div style={{ color: "#f4b400", marginBottom: "0.3rem" }}>
+                {"⭐".repeat(p.rating)}
+              </div>
 
-          {/* Glass Fibre */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/155/LNKZ8822.jpg?t=1734404724"
-              style={{ width: "100%" }}
-            />
-            <h3>Glass Fibre</h3>
-            <p>Brand: Talamex</p>
-            <p>Price: $12.40</p>
-            <button onClick={() => window.location.href="/Paint/glass-fibre"}>
-              View Details
-            </button>
-          </div>
+              <p>🏷️ <strong>Brand:</strong> {p.brand}</p>
+              <p>💰 <strong>Price:</strong> {p.price}</p>
 
-          {/* Engine Spray Paints */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/120/GS90004.jpg?t=1735008971"
-              style={{ width: "100%" }}
-            />
-            <h3>Engine Spray Paints</h3>
-            <p>Brand: Talamex</p>
-            <p>Price: $16.59</p>
-            <button onClick={() => window.location.href="/Paint/engine-spray-paint"}>
-              View Details
-            </button>
-          </div>
-
-          {/* Brilliant Gloss Top Coat */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/162/51f7jY2pbDL._AC_SL1000_.jpg?t=1734404935"
-              style={{ width: "100%" }}
-            />
-            <h3>Brilliant Gloss Top Coat</h3>
-            <p>Brand: Hempel</p>
-            <p>Price: $20.05</p>
-            <button onClick={() => window.location.href="/Paint/brilliant-gloss-topcoat"}>
-              View Details
-            </button>
-          </div>
-
-          {/* Toplac Plus */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/195/topcoat-plus-rescue-orange-ylk265.jpg?t=1734405176"
-              style={{ width: "100%" }}
-            />
-            <h3>International Toplac Plus</h3>
-            <p>Brand: International</p>
-            <p>Price: $41.11</p>
-            <button onClick={() => window.location.href="/Paint/toplac-plus"}>
-              View Details
-            </button>
-          </div>
-
-          {/* Hempel Varnish */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/220/240/detailed/59/duraSatin.jpg?t=1732329137"
-              style={{ width: "100%" }}
-            />
-            <h3>Hempel Classic Varnish</h3>
-            <p>Brand: Hempel</p>
-            <p>Price: $27.59</p>
-            <button onClick={() => window.location.href="/Paint/hempel-varnish"}>
-              View Details
-            </button>
-          </div>
-
-          {/* Owartal Finish */}
-          <div style={{ border: "1px solid #ccc", padding: "1rem", width: "300px" }}>
-            <img
-              src="https://d3u60hpy3azizo.cloudfront.net/images/thumbnails/600/620/detailed/151/63.0365_w550_h550.jpg?t=1734576756"
-              style={{ width: "100%" }}
-            />
-            <h3>Owartal Glazing Finish</h3>
-            <p>Brand: Owartal</p>
-            <p>Price: $19.50</p>
-            <button onClick={() => window.location.href="/Paint/owartal-glazing"}>
-              View Details
-            </button>
-          </div>
+              <button
+                onClick={() => (window.location.href = p.link)}
+                style={{
+                  marginTop: "0.5rem",
+                  background: "#0077b6",
+                  color: "white",
+                  padding: "0.6rem 1rem",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                }}
+              >
+                View Details
+              </button>
+            </div>
+          ))}
 
         </div>
       </section>
 
       {/* WHY BUY */}
-      <section style={{ background: "#f8f9fa", padding: "2rem" }}>
-        <h2>Why Buy From Us?</h2>
+      <section style={{ background: "#f1f1f1", padding: "2rem", marginTop: "2rem", borderRadius: "10px" }}>
+        <h2 style={{ color: "#004f7c" }}>Why Buy From Us?</h2>
         <ul>
-          <li>Wide selection of Paints and Colours</li>
-          <li>Competitive financing options</li>
-          <li>Expert guidance from boating specialists</li>
-          <li>Full-service maintenance & support</li>
-        </ul>
-      </section>
-
-      {/* SERVICES */}
-      <section style={{ padding: "2rem" }}>
-        <h2>Our Services</h2>
-        <ul>
-          <li>Sales: New & pre-owned boats</li>
-          <li>Financing: Flexible payment plans</li>
-          <li>Trade-Ins: Upgrade your current boat</li>
-          <li>Maintenance: Certified repair & servicing</li>
+          <li>⭐ Trusted by thousands of boat owners</li>
+          <li>⚡ Fast delivery & premium quality</li>
+          <li>🎨 Huge selection of marine paints</li>
+          <li>🔧 Expert advice & friendly support</li>
         </ul>
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ background: "#f1f1f1", padding: "2rem" }}>
-        <h2>Customer Testimonials</h2>
-        <blockquote>
-          “I ordered the Hempel varnish and it arrived in 3 days — great service!” ⭐⭐⭐⭐⭐
-        </blockquote>
-        <blockquote>
-          “Paint was ready for pickup the same day. Amazing shop!” ⭐⭐⭐⭐⭐
-        </blockquote>
+      <section style={{ background: "#ffffff", padding: "2rem", borderRadius: "10px", marginTop: "2rem" }}>
+        <h2 style={{ color: "#004f7c" }}>Customer Reviews</h2>
+        <blockquote>“Amazing quality paint, my boat looks brand new!” ⭐⭐⭐⭐⭐</blockquote>
+        <blockquote>“Friendly staff, fast delivery. Highly recommend!” ⭐⭐⭐⭐⭐</blockquote>
       </section>
 
       {/* CONTACT */}
-      <section style={{ padding: "2rem", textAlign: "center" }}>
+      <section style={{ marginTop: "2rem", textAlign: "center" }}>
         <h2>Contact Us</h2>
         <p>📍 Silicon Dock, Galway</p>
         <p>📞 085 253 4566</p>
@@ -167,7 +160,16 @@ const BoatSalesPage = () => {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: "#0077b6", color: "#fff", textAlign: "center", padding: "1rem" }}>
+      <footer
+        style={{
+          background: "#004f7c",
+          color: "white",
+          textAlign: "center",
+          padding: "1rem",
+          marginTop: "2rem",
+          borderRadius: "8px",
+        }}
+      >
         <p>Quick Links: Inventory | Financing | Services | Contact</p>
         <p>© {new Date().getFullYear()} AnchorManagement</p>
       </footer>
