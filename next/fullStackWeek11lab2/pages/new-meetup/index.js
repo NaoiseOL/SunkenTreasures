@@ -9,10 +9,19 @@ function NewBoatPage() {
   const globalCtx = useContext(GlobalContext);
 
   async function addBoatHandler(enteredBoatData) {
-    // still uses the same global update command, but with boat data
-    await globalCtx.updateGlobals({ cmd: 'addMeeting', newVal: enteredBoatData });
-    router.push('/'); // redirect back to homepage
-  }
+  const boatWithId = {
+    ...enteredBoatData,
+    boatId: Date.now().toString(), // generate a unique ID
+  };
+
+  await globalCtx.updateGlobals({
+    cmd: "addBoat",   // use a boat-specific command for clarity
+    newVal: boatWithId,
+  });
+
+  router.push("/SecondHandBoats"); // redirect to your boats page
+}
+
 
   return <NewBoatForm onAddBoat={addBoatHandler} />;
 }
