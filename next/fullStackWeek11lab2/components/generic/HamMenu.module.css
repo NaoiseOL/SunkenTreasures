@@ -1,23 +1,85 @@
-.mainDiv {
-  padding: 25px 5px 17px 5px;
-  margin: 5px;
+.hamMenu {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: transparent;
   border: 2px solid #444d44;
   border-radius: 50%;
-  height: 30px;
-  transition: background-color 0.4s;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.mainSpan {
-  background: transparent;
-  color: #ffffff;
-  text-align: center;
-  font-size: 36px;
-}
-
-.mainDiv:hover {
+.hamMenu:hover {
   background-color: #444d44;
-  border: 2px solid #777777;
+  border-color: #777777;
+  transform: scale(1.05);
+}
+
+/* Hamburger lines */
+.hamLine {
+  width: 60%;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Active state (turns into X) */
+.hamMenu.active .hamLine:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamMenu.active .hamLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamMenu.active .hamLine:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.dropdownContainer {
+  position: absolute;
+  top: 60px; /* adjust based on your icon size */
+  left: 0;
+  background-color: #1a2920;
+  border: 2px solid #444d44;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+  z-index: 100;
+}
+
+.dropdownList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdownList li {
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.dropdownList li:hover {
+  background-color: #2e3d34;
+  transform: translateX(4px);
+}
+
+.dropdownList li:active {
+  background-color: #00b894;
+  transform: scale(0.95);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

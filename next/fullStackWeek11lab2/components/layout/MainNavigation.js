@@ -17,8 +17,8 @@ function MainNavigation() {
 
   const contents = []
   globalCtx.theGlobalObject.meetings.forEach(element => {
-    contents.push({title: element.title, webAddress: '/' + element.meetingId })
-  });
+    contents.push({ title: element.title, webAddress: '/' + element.meetingId })
+  })
 
   return (
     <header className={classes.header}>
@@ -28,15 +28,17 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link href='/'>All Meetups</Link> ({globalCtx.theGlobalObject.meetings.length})
+            {/* Homepage link to base index */}
+            <Link href='/'>Homepage</Link> ({globalCtx.theGlobalObject.meetings.length})
           </li>
           <li>
-            <Link href='/new-meetup'>Add New Meetup</Link>
+            {/* New boat link, same route as before */}
+            <Link href='/new-meetup'>Add New Boat</Link>
           </li>
         </ul>
       </nav>
     </header>
-  );
+  )
 }
 
 export default MainNavigation
